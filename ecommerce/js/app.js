@@ -1,5 +1,5 @@
 // Importar los módulos de Firebase
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
 
 // Configuración de Firebase
@@ -44,4 +44,52 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         location.href = "admin"; // Redirigir si el usuario está autenticado
     }
+});
+
+// Proveedor de Google
+const providerGoogle = new GoogleAuthProvider();
+const btnGoogle = document.querySelector('.btn-google');
+btnGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    signInWithPopup(auth, providerGoogle)
+        .then((result) => {
+            // Redirigir a la página admin
+            location.href = "admin"; // Asegúrate de que esta ruta sea correcta
+        })
+        .catch((error) => {
+            console.error("Error de inicio de sesión con Google:", error.code, error.message);
+            alert("Error: " + error.message);
+        });
+});
+
+// Proveedor de Facebook
+const providerFacebook = new FacebookAuthProvider();
+const btnFacebook = document.querySelector('.btn-facebook');
+btnFacebook.addEventListener('click', (e) => {
+    e.preventDefault();
+    signInWithPopup(auth, providerFacebook)
+        .then((result) => {
+            // Redirigir a la página admin
+            location.href = "admin"; // Asegúrate de que esta ruta sea correcta
+        })
+        .catch((error) => {
+            console.error("Error de inicio de sesión con Facebook:", error.code, error.message);
+            alert("Error: " + error.message);
+        });
+});
+
+// Proveedor de Twitter
+const providerTwitter = new TwitterAuthProvider();
+const btnTwitter = document.querySelector('.btn-twitter');
+btnTwitter.addEventListener('click', (e) => {
+    e.preventDefault();
+    signInWithPopup(auth, providerTwitter)
+        .then((result) => {
+            // Redirigir a la página admin
+            location.href = "admin"; // Asegúrate de que esta ruta sea correcta
+        })
+        .catch((error) => {
+            console.error("Error de inicio de sesión con Twitter:", error.code, error.message);
+            alert("Error: " + error.message);
+        });
 });

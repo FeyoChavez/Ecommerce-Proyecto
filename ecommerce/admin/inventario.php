@@ -32,8 +32,10 @@
 						<textarea name="descripcion" required cols="30" rows="10" class="form-control"></textarea>
 					</div>
 					<button type="submit" class="btn btn-info">Guardar</button>
+
 				</form>
 			</div>
+		</div>
 
 		<div class="card text-white bg-dark" style="margin-top: 1%;">
 				<div class="card-header"><h4 class="card-title">Ultimo registro</h4></div>
@@ -64,8 +66,8 @@
 							  		<td><?php echo $f['categoria'] ?></td>
 							  		<td><?php echo substr($f['descripcion'] , 0, 100) ?>...</td>
 							  		<td><a href="agregar_imagenes.php?clave=<?php echo $f['clave'] ?>" class="btn btn-outline-success btn-sm"><span class="material-icons">add</span></a></td>
-							  		<td><a href="editar_producto.php?clave=<?php echo $f['clave'] ?>" class="btn btn-outline-primary btn-sm"><span class="material-icons">edit</span></a></td></td>
-							  		<td></td>
+							  		<td><a href="editar_producto.php?clave=<?php echo $f['clave'] ?>" class="btn btn-outline-primary btn-sm"><span class="material-icons">edit</span></a></td>
+							  		<td><a href="#" class="btn btn-outline-danger btn-sm" onclick="bootbox.confirm('Seguro que desea realizar esta accion', function(result){ if (result == true){ location.href='eliminar_producto.php?clave=<?php echo $f['clave'] ?>&foto=<?php echo $f['foto'] ?>&pag=inventario.php';} })"><span class="material-icons" >clear</span></a></td>
 							  	</tr>
 							  	<?php 
 							  	}
@@ -77,10 +79,14 @@
 
 				
 
-				</div>			
-	    </div>
-</div>
+				</div>
+			</div>
 
+
+
+
+
+</div>
 
 <?php include '../extend/footer.php'; ?>
 </body>

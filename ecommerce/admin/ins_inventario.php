@@ -64,6 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo alerta('El producto no pudo ser guardado','inventario.php');
 		}
 		
+
+
+
 }else{
 echo alerta('Utiliza el formulario','inventario.php');
 }

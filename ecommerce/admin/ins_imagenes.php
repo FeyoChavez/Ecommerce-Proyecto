@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$height = $tamano[1];
 		$clave = sha1(rand(0000,9999).rand(00,99));
 
+
 		if ($info['extension'] == 'jpg' || $info['extension'] == 'JPG' || $info['extension'] == 'jpeg' || $info['extension'] == 'JPEG') {
 			$imagenvieja = imagecreatefromjpeg($ruta);
 			$nueva = imagecreatetruecolor($ancho, $alto);
@@ -42,25 +43,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo alerta('El formato no es aceptado','agregar_imagenes.php?clave='.$clave_producto.'');
 			exit;
 		}
+
 		$ins = $con->prepare("INSERT INTO imagenes VALUES (DEFAULT, :clave, :clave_producto, :ruta)");
 		
 		    $ins->bindparam(':clave', $clave);
 		    $ins->bindparam(':clave_producto', $clave_producto);
 		    $ins->bindparam(':ruta', $copia);
-		    $ins->execute();		
+		    $ins->execute();
 
-		
-			}//TERMINA FOREACH
+	}//TERMINA FOREACH
+
 			if ($ins) {
 				echo alerta('Imagenes guardadas correctamente','agregar_imagenes.php?clave='.$clave_producto.'');
 			}else{
 				echo alerta('La imagenes no pudieron ser guardadas','agregar_imagenes.php?clave='.$clave_producto.'');
 			}
 			$ins = null;
-			$con = null;			
-			
+			$con = null;
+  
   }else {
-    echo alerta('Utiliza el formulario','pagina.php');
+    echo alerta('Utiliza el formulario','agregar_imagenes.php?clave='.$clave_producto.'');
   }
 
 
