@@ -12,7 +12,7 @@ $total = 0;
 		<div class="card-body">
 			<div class="row">
 				<div class="col-4">
-					<img src="../../ecommerce/admin/<?php echo $f['foto'] ?>" width="100%" >
+					<img src="/ecommerce2/ecommerce_fase1/admin/<?php echo $f['foto'] ?>" width="100%" >
 				</div>
 				<div class="col-8">
 					<h4 class="card-title"><?php echo $f['producto'] ?></h4>
@@ -35,6 +35,7 @@ $total = 0;
 
 <div class="container" style="margin-top: 1%;">
 	<div class="card text-center">
+
 		<div class="card-header">
 			Resumen
 		</div>
@@ -56,7 +57,26 @@ $total = 0;
 					<input type="text" name="cp" placeholder="Codigo postal" class="form-control">
 				</div>
 				<div class="form-group">
-							
+						<div class="row">
+							<div class="col">
+								<select id="" class="form-control">
+									<option value=""disable selected>Elige tu pais</option>
+									<?php $sel_pais = $con->prepare("SELECT * FROM pais");
+									$sel_pais ->execute();
+									 while ($f_pais = $sel_pais->fetch()) { ?>
+									 	<option value="<?php echo $f_pais['id'] ?>"><?php echo $f_pais['pais']  ?></option>
+									 	<?php 
+									 	}	
+									 	$sel_pais = null;
+									 	$con = null;
+									 	 ?>
+								</select>
+								<input type="hidden" name="pais" id="pais2">
+							</div>
+							<div class="col">
+								<div class="res_estado"></div>
+							</div>
+						</div>	
 				</div>
 				<input type="submit" class="btn btn-primary" value="Confirmar">
 			</form>
@@ -74,5 +94,22 @@ $total = 0;
 
 <?php include '../extend/footer.php'; ?>
 <script src="../js/ver_mas.js" ></script>
+
+
+<script>
+	$('#pais').change(function() {
+		$.post('ajax_estados.php',{
+			pais:$('#pais').val(),
+			beforeSend: function (){
+				$('.res_estado').html("Espere un momento por favor...");
+			}
+		}, function(respuesta){
+			$('.res_estado').html(respuesta);
+
+		});
+		var valor = $('#pais option:selected').html();
+		$('#pais2').val(valor);
+	});
+</script>
 </body>
 </html>
