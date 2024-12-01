@@ -37,7 +37,7 @@ $sel->execute(array($clave));
                       while ($f_img = $sel_img->fetch()) { 
                    ?>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="../ecommerce/admin/<?php echo $f_img['ruta'] ?>" width="100%" height="70%">
+                    <img class="d-block w-100" src="/ecommerce2/ecommerce/admin/<?php echo $f_img['ruta'] ?>" width="100%" height="70%">
                   </div>
                   <?php }
                   $sel_img = null;

@@ -1,30 +1,25 @@
 <?php 
-use PayPal/Rest/ApiContext;
+use PayPal\Rest\ApiContext;
+use PayPal\Auth\OAuthTokenCredential;
 
-use PayPal/Auth/AuthTokenCredential;
-
-require __DIR__. '/vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
 $apiContext = new ApiContext(
 	new OAuthTokenCredential(
-		'AdHssXu0K68OnMrzuxN5Jy1Fy9GlecgsfffDIzRCoBCTelOrMphJPwvEMKBmIGJE0qysBLPqRwPCv8Uo', 'EOZJsrP348rP5DepJUnKTJltQLfcprp6chRkQElbmUCcQDJ_IOIP9A2t0WiDs7kr3Q9i7zEZjPy0FN9y'
+		'AY0_dC-6663LTs0bmzGBTBhru1QKqrKPCupAgshi4mwocdiyBRuNsKtcRYK1_81lsRc4HJqc--MN1WSI',
+		'EJh1pfVvC8m9B0hccF_vpW5OqhA6KQjgYJI9yQb1tCwao4K5jr3iSPIgpjXuMFquND1pCpwQ-MWTm0MM'
 	)
-	
 );
 
 $apiContext->setConfig(
-array(
-'mode' => 'sandbox',
-'http.ConnectionTimeOut'=>30,
-'log.LogEnabled'=> true,
-'log.FileName'=> 'PayPal.log',
-'log.LogLevel', => 'DEBUG',
-	
-
+	array(
+		'mode' => 'sandbox',
+		'http.ConnectionTimeOut' => 30,
+		'log.LogEnable' => true,
+		'log.Filename' => 'PayPal.log',
+		'log.LogLevel' => 'DEBUG',
 
 	)
-
 );
-
 
  ?>

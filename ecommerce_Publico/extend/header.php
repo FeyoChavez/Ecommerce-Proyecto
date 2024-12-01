@@ -29,7 +29,7 @@
 				<li class="nav-item dropdown" >
 					<a href="#" class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a href="../inicio/categorias.php?opc=GENERAL" class="dropdown-item">GENERAL</a>
+						<a href="../inicio/index.php" class="dropdown-item">GENERAL</a>
 						<a href="../inicio/categorias.php?opc=MODA" class="dropdown-item">MODA</a>
 						<a href="../inicio/categorias.php?opc=ELECTRONICA" class="dropdown-item">ELECTRONICA</a>
 						<a href="../inicio/categorias.php?opc=JOYERIA" class="dropdown-item">JOYERIA</a>
@@ -57,7 +57,7 @@
 				</a>
 				<div class="dropdown-menu" aria-labelledby="perfil">
 					<a href="deseos.php" class="dropdown-item">Deseos</a>
-					<a href="#" class="dropdown-item">Compras</a>
+					<a href="compras.php" class="dropdown-item">Compras</a>
 					<a href="#" class="dropdown-item" id="logout">Salir</a>
 
 
